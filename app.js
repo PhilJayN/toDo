@@ -12,17 +12,20 @@ console.log('asdfjk');
       $buttonEl.on("click", addItem);
 
       function addItem () {
-        console.log ('clik!');
+        console.log ('clicked!');
         var inputValue = $inputFieldEl.val();
-        // console.log('inputval', inputValue);
-        // list.push(inputValue);
-        $todoEl.text(inputValue);
+        //creates li, then puts user input value inside.
+        var $listItem = $("<li>").text(inputValue);
+        //creates an x button to use as delete btn
+        var $delBtn = $("<span>").text("x");
+        //append to DOM, or else dangling
+        $listItem.append($delBtn);
+        $todoEl.append($listItem);
       }
 
       return {
         addItem: addItem,
       };
-
 
 }) ();
 
